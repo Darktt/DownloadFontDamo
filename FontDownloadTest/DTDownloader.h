@@ -1,9 +1,8 @@
 //
 //  DTDownloader.h
-//  FontDownloadTest
 //
-//  Created by EdenLi on 2016/7/1.
-//  Copyright © 2016年 Darktt. All rights reserved.
+//  Created by Darktt on 16/7/1.
+//  Copyright © 2016 Darktt. All rights reserved.
 //
 
 @import Foundation;
@@ -11,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class DTDownloader;
 
-typedef void (^DTDownloadProgressHandler) (float percentage);
+typedef void (^DTDownloadProgressHandler) (DTDownloader *downloader, float percentage);
 typedef void (^DTDownloadCompletionHandler) (DTDownloader *downloader, NSURL * _Nullable location, NSError * _Nullable error);
 
 @interface DTDownloader : NSObject
@@ -26,7 +25,7 @@ typedef void (^DTDownloadCompletionHandler) (DTDownloader *downloader, NSURL * _
 + (instancetype)downloaderWithURL:(NSURL *)URL;
 
 - (void)startDownload;
-- (void)startNextWithURL:(NSURL *)URL;
+- (void)startNextWithURL:(NSURL *)URL NS_SWIFT_NAME(startNext(url:));
 
 - (void)cancel;
 

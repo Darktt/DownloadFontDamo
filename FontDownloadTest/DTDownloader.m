@@ -1,9 +1,8 @@
 //
 //  DTDownloader.m
-//  FontDownloadTest
 //
-//  Created by EdenLi on 2016/7/1.
-//  Copyright © 2016年 Darktt. All rights reserved.
+//  Created by Darktt on 16/7/1.
+//  Copyright © 2016 Darktt. All rights reserved.
 //
 
 #import "DTDownloader.h"
@@ -35,6 +34,15 @@
     [self setCurrenURL:URL];
     
     return self;
+}
+
+- (void)dealloc
+{
+    [self setProgressHandler:nil];
+    [self setCurrenURL:nil];
+    [self setDownloadTask:nil];
+    
+    [super dealloc];
 }
 
 #pragma mark - Public Methods
@@ -134,7 +142,7 @@
     
     float percentage = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
     
-    self.progressHandler(percentage);
+    self.progressHandler(self, percentage);
 }
 
 @end
