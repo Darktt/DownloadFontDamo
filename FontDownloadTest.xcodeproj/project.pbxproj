@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528237F81D261C6A00DA0804 /* DTDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 528237F71D261C6A00DA0804 /* DTDownloader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		529666521D25170900C3B7CE /* DTFileAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296664B1D25170900C3B7CE /* DTFileAttribute.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		529666531D25170900C3B7CE /* DTFileController+ALAssetsLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296664D1D25170900C3B7CE /* DTFileController+ALAssetsLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		529666541D25170900C3B7CE /* DTFileController+EXIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296664F1D25170900C3B7CE /* DTFileController+EXIF.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		529666551D25170900C3B7CE /* DTFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529666511D25170900C3B7CE /* DTFileController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52A2724C1D24EA5D0085D127 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2724B1D24EA5D0085D127 /* main.m */; };
 		52A2724F1D24EA5D0085D127 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2724E1D24EA5D0085D127 /* AppDelegate.m */; };
 		52A272521D24EA5D0085D127 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A272511D24EA5D0085D127 /* ViewController.m */; };
@@ -16,6 +21,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		528237F61D261C6A00DA0804 /* DTDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDownloader.h; sourceTree = "<group>"; };
+		528237F71D261C6A00DA0804 /* DTDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDownloader.m; sourceTree = "<group>"; };
+		5296664A1D25170900C3B7CE /* DTFileAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTFileAttribute.h; sourceTree = "<group>"; };
+		5296664B1D25170900C3B7CE /* DTFileAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTFileAttribute.m; sourceTree = "<group>"; };
+		5296664C1D25170900C3B7CE /* DTFileController+ALAssetsLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTFileController+ALAssetsLibrary.h"; sourceTree = "<group>"; };
+		5296664D1D25170900C3B7CE /* DTFileController+ALAssetsLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTFileController+ALAssetsLibrary.m"; sourceTree = "<group>"; };
+		5296664E1D25170900C3B7CE /* DTFileController+EXIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTFileController+EXIF.h"; sourceTree = "<group>"; };
+		5296664F1D25170900C3B7CE /* DTFileController+EXIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTFileController+EXIF.m"; sourceTree = "<group>"; };
+		529666501D25170900C3B7CE /* DTFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTFileController.h; sourceTree = "<group>"; };
+		529666511D25170900C3B7CE /* DTFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTFileController.m; sourceTree = "<group>"; };
 		52A272471D24EA5C0085D127 /* FontDownloadTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontDownloadTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A2724B1D24EA5D0085D127 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52A2724D1D24EA5D0085D127 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +54,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		529666491D25170900C3B7CE /* DTFileController */ = {
+			isa = PBXGroup;
+			children = (
+				5296664A1D25170900C3B7CE /* DTFileAttribute.h */,
+				5296664B1D25170900C3B7CE /* DTFileAttribute.m */,
+				5296664C1D25170900C3B7CE /* DTFileController+ALAssetsLibrary.h */,
+				5296664D1D25170900C3B7CE /* DTFileController+ALAssetsLibrary.m */,
+				5296664E1D25170900C3B7CE /* DTFileController+EXIF.h */,
+				5296664F1D25170900C3B7CE /* DTFileController+EXIF.m */,
+				529666501D25170900C3B7CE /* DTFileController.h */,
+				529666511D25170900C3B7CE /* DTFileController.m */,
+			);
+			path = DTFileController;
+			sourceTree = "<group>";
+		};
 		52A2723E1D24EA5C0085D127 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +88,11 @@
 		52A272491D24EA5D0085D127 /* FontDownloadTest */ = {
 			isa = PBXGroup;
 			children = (
+				529666491D25170900C3B7CE /* DTFileController */,
 				52A2724D1D24EA5D0085D127 /* AppDelegate.h */,
 				52A2724E1D24EA5D0085D127 /* AppDelegate.m */,
+				528237F61D261C6A00DA0804 /* DTDownloader.h */,
+				528237F71D261C6A00DA0804 /* DTDownloader.m */,
 				52A272501D24EA5D0085D127 /* ViewController.h */,
 				52A272511D24EA5D0085D127 /* ViewController.m */,
 				52A272531D24EA5D0085D127 /* Main.storyboard */,
@@ -149,9 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528237F81D261C6A00DA0804 /* DTDownloader.m in Sources */,
+				529666521D25170900C3B7CE /* DTFileAttribute.m in Sources */,
+				529666531D25170900C3B7CE /* DTFileController+ALAssetsLibrary.m in Sources */,
 				52A272521D24EA5D0085D127 /* ViewController.m in Sources */,
+				529666551D25170900C3B7CE /* DTFileController.m in Sources */,
 				52A2724F1D24EA5D0085D127 /* AppDelegate.m in Sources */,
 				52A2724C1D24EA5D0085D127 /* main.m in Sources */,
+				529666541D25170900C3B7CE /* DTFileController+EXIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +338,7 @@
 				52A272601D24EA5D0085D127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
