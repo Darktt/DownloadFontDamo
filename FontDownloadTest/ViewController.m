@@ -13,8 +13,6 @@
 
 @import CoreText;
 
-static NSString *kFontURLString = @"https://dl.dropboxusercontent.com/u/77217798/UbuntuFonts/Ubuntu-R.ttf";
-
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak) IBOutlet UITableView *tableView;
@@ -57,7 +55,7 @@ static NSString *kFontURLString = @"https://dl.dropboxusercontent.com/u/77217798
     NSString *fileName = URL.lastPathComponent;
     UIAlertController *__block alertController = nil;
     
-    DTDownloadProgressHandler progressHandler = ^(float precenage) {
+    DTDownloadProgressHandler progressHandler = ^(DTDownloader *downloader, float precenage) {
         
         NSString *message = [NSString stringWithFormat:@"Downloading... (%.2f%%)", precenage * 100.0f];
         
@@ -154,7 +152,7 @@ static NSString *kFontURLString = @"https://dl.dropboxusercontent.com/u/77217798
     }
     
     NSInteger index = indexPath.row;
-    NSString *fontName = @"";
+    NSString *fontName = nil;
     
     if (index == 0) {
         fontName = @"Ubuntu";
