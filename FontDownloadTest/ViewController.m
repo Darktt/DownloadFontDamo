@@ -35,7 +35,8 @@
     
     self.fontURLs = @[@"https://dl.dropboxusercontent.com/u/77217798/UbuntuFonts/Ubuntu-R.ttf",
                       @"https://dl.dropboxusercontent.com/u/77217798/UbuntuFonts/Ubuntu-C.ttf",
-                      @"https://dl.dropboxusercontent.com/u/77217798/UbuntuFonts/Ubuntu-L.ttf"];
+                      @"https://dl.dropboxusercontent.com/u/77217798/UbuntuFonts/Ubuntu-L.ttf",
+                      @"https://dl.dropboxusercontent.com/u/77217798/Demo/Astar.ttf"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +53,7 @@
     NSString *fontURL = self.fontURLs[index];
     NSURL *URL = [NSURL URLWithString:fontURL];
     
-    NSString *fileName = URL.lastPathComponent;
+    NSString *__block fileName = URL.lastPathComponent;
     UIAlertController *__block alertController = nil;
     
     DTDownloadProgressHandler progressHandler = ^(DTDownloader *downloader, float precenage) {
@@ -68,6 +69,8 @@
         NSString *savePath = [fileController cachesPathWithFileName:fileName];
         
         if ([fileController fileExistAtPath:savePath]) {
+            
+            [self unregisterFontWithPath:savePath];
             [fileController removeFileAtPath:savePath];
         }
         
@@ -88,7 +91,7 @@
         
         [downloader startNextWithURL:URL];
         
-        NSString *fileName = URL.lastPathComponent;
+        fileName = URL.lastPathComponent;
         [alertController setTitle:fileName];
         [alertController setMessage:@"Downloading... (0.0%)"];
     };
@@ -130,6 +133,24 @@
     CFRelease(provider);
 }
 
+- (void)unregisterFontWithPath:(NSString *)path
+{
+    NSData *fontData = [NSData dataWithContentsOfFile:path options:NSDataReadingUncached error:NULL];
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)fontData);
+    CGFontRef font = CGFontCreateWithDataProvider(provider);
+    
+    CFErrorRef error;
+    if (!CTFontManagerUnregisterGraphicsFont(font, &error)) {
+        CFStringRef errorDescription = CFErrorCopyDescription(error);
+        NSLog(@"Failed to unload font: %@", errorDescription);
+        CFRelease(errorDescription);
+    }
+    
+    CFRelease(font);
+    CFRelease(provider);
+}
+
 #pragma mark - UITableView DataSource Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -139,7 +160,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,6 +187,10 @@
         fontName = @"Ubuntu-Light";
     }
     
+    if (index == 3) {
+        fontName = @"AstarWebFont";
+    }
+    
     UIFont *font = [UIFont fontWithName:fontName size:20];
     
     if (font == nil) {
@@ -173,7 +198,12 @@
     }
     
     [cell.textLabel setFont:font];
-    [cell.textLabel setText:@"Ubuntu"];
+    
+    if (index < 3) {
+        [cell.textLabel setText:@"Ubuntu"];
+    } else {
+        [cell.textLabel setText:@"【游錫】"];
+    }
     
     return cell;
 }
